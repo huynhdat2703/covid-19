@@ -2,16 +2,17 @@ const express = require('express');
 const app = express();
 const port = 3000;
 const axios = require('axios');
-const URI = "https://code.junookyo.xyz/api/ncov-moh/";
+// const URI = "https://code.junookyo.xyz/api/ncov-moh/";
+const URI = "https://api.covid19api.com/summary";
 
 app.set('view engine', 'pug');
 app.set('views', './views');
 
 function getData(req, res) {
     axios.get(URI)
-        .then((respond) => {
+        .then((response) => {
             res.render('index', {
-                data: respond.data.data
+                data: response.data
             });
         })
         .catch((err) => {

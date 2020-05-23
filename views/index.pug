@@ -11,23 +11,32 @@ html(lang="en")
     body
         .container
             h1 COVID-19
+            h2 Global
             table(class="table table-striped table-bordered")
                 thead(class="thead-dark")
                     th #
                     th Global
-                    th Vietnam
                 tr
-                    td Case
-                    td= data.global.cases
-                    td= data.vietnam.cases
+                    td Total Case
+                    td= data.Global.TotalConfirmed
                 tr
-                    td Deaths
-                    td= data.global.deaths
-                    td= data.vietnam.deaths
+                    td Total Deaths
+                    td= data.Global.TotalDeaths
                 tr
-                    td Recovered
-                    td= data.global.recovered
-                    td= data.vietnam.recovered
-
+                    td Total Recovered
+                    td= data.Global.TotalRecovered
+            h2 Countries
+            table(class="table table-striped table-bordered")
+                thead(class="thead-dark")
+                    th Countries
+                    th Total Case
+                    th Total Deaths
+                    th Total Recovered
+                for country in  data.Countries
+                    tr
+                        td= country.Country
+                        td= country.TotalConfirmed
+                        td= country.TotalDeaths
+                        td= country.TotalRecovered
 
 
